@@ -1,0 +1,34 @@
+{
+    "name": "dice-roller",
+    "version": "1.0.0",
+    "description": "dice rolling app",
+    "main": "index.js",
+    "scripts": {
+      "react-dev": "webpack -d --watch",
+      "server-dev": "nodemon server/index.js",
+      "start": "node server/index.js",
+      "heroku-postbuild": "webpack -p",
+      "seed-mongo": "node DB/seedMechs.js"
+    },
+    "author": "Camron Stuart",
+    "license": "?",
+    "devDependencies": {
+      "babel-core": "^6.23.1",
+      "babel-loader": "^6.3.2",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-preset-es2015": "^6.22.0",
+      "babel-preset-react": "^6.23.0",
+      "webpack": "^2.2.1",
+      "webpack-cli": "^3.3.2",
+      "webpack-dev-server": "^3.4.1"
+    },
+    "dependencies": {
+      "body-parser": "^1.17.0",
+      "cors": "^2.8.5",
+      "express": "^4.15.0",
+      "mongoose": "^4.9.6",
+      "react": "^16.4.1",
+      "react-dom": "^16.4.1"
+    }
+  }
+  
