@@ -8,4 +8,4 @@ ReactDOM.render(
   <ErrorBoundary>
     <App />
   </ErrorBoundary>,
-  document.getElementById('app '))
+  document.getElementById('app'))

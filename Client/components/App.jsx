@@ -1,41 +1,63 @@
 import React from 'react'
 import Setup from './Setup.jsx'
 import Result from './Result.jsx'
-
+import {Die} from '../src/Die.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
-    handleDiceSelection = this.handleDiceSelection.bind(this)
-    handleRulesSelection = this.handleRulesSelection.bind(this)
+    this.handleDieSelect = this.handleDieSelect.bind(this)
+    this.handleRuleSelect = this.handleRuleSelect.bind(this)
+    this.handleRoll = this.handleRoll.bind(this)
+
     this.state = {
       dice: [],
-      rules: {},
+      rules: [],
       rolled: false
     }
   }
 
-  handleRulesSelection() {
-
+  handleRuleSelect(newRule) {
+    this.setState({
+      rules:[...this.state.rules, newRule]
+    })
   }
 
-  handleDiceSelection() {
+  handleDieSelect(sides) {
+    this.setState({
+      dice: [...this.state.dice, new Die(sides)]
+    })
+  }
 
+  handleRoll() {
+    this.setState({
+      rolled: true
+    })
   }
 
   render () {
     if(!this.state.rolled) {
       return (
-        <Setup />
+        <div>
+          <Setup 
+          handleDieSelect = {this.handleDieSelect}
+          handleRuleSelect = {this.handleRuleSelect}
+          handleRoll = {this.handleRoll}
+          dice = {this.state.dice}
+          rules = {this.state.rules}
+          />
+        </div>
       )
     } else {
       return (
         <Result 
         dice = {this.state.dice}
-        rules = {this.state. rules}
+        rules = {this.state.rules}
         />
       )
     }
   }
 }
+
+export default App

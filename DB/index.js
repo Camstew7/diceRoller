@@ -4,3 +4,4 @@ if(process.env.MONGODB_URI){
 } else {
   mongoose.connect('mongodb://localhost/fetcher')
 }
+
